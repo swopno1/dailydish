@@ -1,0 +1,6 @@
+{
+  "name": "Daily Dish",
+  "description": "Discover a featured daily recipe with ingredients, cooking steps, and easy sharing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

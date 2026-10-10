@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Daily Dish</string>
+    <string name="app_tagline">Fresh daily meal inspiration</string>
+    <string name="recipe_of_the_day">Recipe of the Day</string>
+    <string name="ingredients_title">Ingredients</string>
+    <string name="instructions_title">Cooking Instructions</string>
+    <string name="chef_tip_title">Chef\'s Tip</string>
+    <string name="prep_time">Prep Time</string>
+    <string name="cook_time">Cook Time</string>
+    <string name="servings">Servings</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="copy_recipe">Copy Recipe</string>
+    <string name="recipe_copied">Recipe copied to clipboard!</string>
+    <string name="share_recipe">Share Recipe</string>
+    <string name="share_via">Share Recipe via</string>
+    <string name="share_whatsapp">WhatsApp</string>
+    <string name="switch_language">Switch Language</string>
+    <string name="favorite_added">Saved to Favorites!</string>
+    <string name="favorite_removed">Removed from Favorites</string>
+    <string name="about_title">About Daily Dish</string>
+    <string name="about_developer">Developed by ViveScript Solutions LLC</string>
+    <string name="copyright_notice">© 2026 ViveScript Solutions LLC.</string>
+</resources>
