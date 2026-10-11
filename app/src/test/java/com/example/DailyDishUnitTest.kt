@@ -112,5 +112,15 @@ class DailyDishUnitTest {
         assertTrue(recent.isNotEmpty())
         assertEquals(recent.size, recent.distinctBy { it.id }.size)
     }
+
+    @Test
+    fun `every recipe has unique matching image resource`() {
+        val all = RecipeRepository.getAllRecipes()
+        val imageIds = all.map { it.imageResId }
+        assertEquals("Each recipe must have its own unique image resource", all.size, imageIds.distinct().size)
+        all.forEach { recipe ->
+            assertTrue("Recipe image resource ID must be valid", recipe.imageResId != 0)
+        }
+    }
 }
 

@@ -250,7 +250,7 @@ object RecipeRepository {
             cookTimeMinutes = 30,
             baseServings = 4,
             difficulty = Difficulty.EASY,
-            imageResId = R.drawable.dish_biryani,
+            imageResId = R.drawable.dish_khichuri,
             ingredients = listOf(
                 Ingredient(300.0, "g", "গ্রাম", "Chinigura or Kalijeera Aromatic Rice", "চিনিগুঁড়া বা সুগন্ধি চাল"),
                 Ingredient(200.0, "g", "গ্রাম", "Yellow Roasted Moong Dal", "ভাজা সোনা মুগ ডাল"),
@@ -305,7 +305,7 @@ object RecipeRepository {
             cookTimeMinutes = 35,
             baseServings = 4,
             difficulty = Difficulty.MEDIUM,
-            imageResId = R.drawable.dish_curry,
+            imageResId = R.drawable.dish_butter_chicken,
             ingredients = listOf(
                 Ingredient(500.0, "g", "গ্রাম", "Boneless Chicken Thighs, cubed", "মুরগির মাংস টুকরো"),
                 Ingredient(500.0, "g", "গ্রাম", "Ripe Red Tomatoes, puréed", "পাকা টমেটো পিউরি"),
@@ -359,7 +359,7 @@ object RecipeRepository {
             cookTimeMinutes = 15,
             baseServings = 3,
             difficulty = Difficulty.EASY,
-            imageResId = R.drawable.dish_pasta,
+            imageResId = R.drawable.dish_shakshuka,
             ingredients = listOf(
                 Ingredient(4.0, "large", "টি", "Fresh Farm Eggs", "তাজা ডিম"),
                 Ingredient(400.0, "g", "গ্রাম", "Crushed Ripe Tomatoes", "টমেটো কুচি বা পিউরি"),
@@ -413,7 +413,7 @@ object RecipeRepository {
             cookTimeMinutes = 20,
             baseServings = 4,
             difficulty = Difficulty.EASY,
-            imageResId = R.drawable.dish_salmon,
+            imageResId = R.drawable.dish_dal,
             ingredients = listOf(
                 Ingredient(200.0, "g", "গ্রাম", "Red Lentils (Masoor) & Yellow Moong", "মসুর ও মুগ ডাল"),
                 Ingredient(2.0, "tbsp", "টেবিল চামচ", "Pure Desi Ghee", "খাঁটি ঘি"),

@@ -27,26 +27,31 @@ class InterstitialAdManager(private val context: Context) {
         if (!AdConfig.ADS_ENABLED || isLoading || interstitialAd != null) return
 
         isLoading = true
-        val adRequest = AdRequest.Builder().build()
+        try {
+            val adRequest = AdRequest.Builder().build()
 
-        InterstitialAd.load(
-            context,
-            AdConfig.interstitialAdUnitId,
-            adRequest,
-            object : InterstitialAdLoadCallback() {
-                override fun onAdLoaded(ad: InterstitialAd) {
-                    interstitialAd = ad
-                    isLoading = false
-                    Log.d(TAG, "Interstitial ad successfully loaded.")
-                }
+            InterstitialAd.load(
+                context,
+                AdConfig.interstitialAdUnitId,
+                adRequest,
+                object : InterstitialAdLoadCallback() {
+                    override fun onAdLoaded(ad: InterstitialAd) {
+                        interstitialAd = ad
+                        isLoading = false
+                        Log.d(TAG, "Interstitial ad successfully loaded.")
+                    }
 
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    interstitialAd = null
-                    isLoading = false
-                    Log.w(TAG, "Interstitial ad failed to load: ${error.message} (Code: ${error.code})")
+                    override fun onAdFailedToLoad(error: LoadAdError) {
+                        interstitialAd = null
+                        isLoading = false
+                        Log.d(TAG, "Interstitial ad failed to load: ${error.message} (Code: ${error.code})")
+                    }
                 }
-            }
-        )
+            )
+        } catch (e: Exception) {
+            isLoading = false
+            Log.w(TAG, "Failed to load interstitial ad: ${e.message}")
+        }
     }
 
     /**

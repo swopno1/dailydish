@@ -19,6 +19,11 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-5222053984568989~4936428567" />
+
+        <!-- Delay App Measurement to prevent ServiceUnavailableException on emulators -->
+        <meta-data
+            android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
+            android:value="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

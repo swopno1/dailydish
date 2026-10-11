@@ -1,5 +1,6 @@
 package com.example.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,9 +17,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.ads.AdConfig
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
 
 @Composable
 fun AdBannerView(
@@ -38,8 +41,17 @@ fun AdBannerView(
                 AdView(context).apply {
                     setAdSize(AdSize.BANNER)
                     adUnitId = AdConfig.bannerAdUnitId
-                    val adRequest = AdRequest.Builder().build()
-                    loadAd(adRequest)
+                    adListener = object : AdListener() {
+                        override fun onAdFailedToLoad(error: LoadAdError) {
+                            Log.d("AdBannerView", "Banner ad failed to load: ${error.message} (Code: ${error.code})")
+                        }
+                    }
+                    try {
+                        val adRequest = AdRequest.Builder().build()
+                        loadAd(adRequest)
+                    } catch (e: Exception) {
+                        Log.w("AdBannerView", "Exception loading banner ad: ${e.message}")
+                    }
                 }
             }
         )

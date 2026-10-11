@@ -27,7 +27,11 @@ class MainActivity : ComponentActivity() {
 
         // Initialize Google Mobile Ads SDK
         if (AdConfig.ADS_ENABLED) {
-            MobileAds.initialize(this) {}
+            try {
+                MobileAds.initialize(this) {}
+            } catch (e: Exception) {
+                android.util.Log.w("MainActivity", "AdMob initialization caught: ${e.message}")
+            }
         }
 
         interstitialAdManager = InterstitialAdManager(this)

@@ -1,5 +1,7 @@
 package com.example.ads
 
+import com.example.BuildConfig
+
 /**
  * Centralized AdMob / Advertising Configuration
  * Google Mobile Ads SDK Configuration
@@ -12,9 +14,9 @@ object AdConfig {
 
     /**
      * Toggle between Production IDs and Google Official Test IDs.
-     * Set USE_TEST_ADS = false for production release.
+     * True during development/debug to avoid invalid traffic on publisher account.
      */
-    const val USE_TEST_ADS = false
+    const val USE_TEST_ADS = true
 
     // Official Google Test IDs
     const val TEST_APP_ID = "ca-app-pub-3940256099942544~3347511713"
@@ -30,19 +32,19 @@ object AdConfig {
      * Active Application ID
      */
     val appId: String
-        get() = if (USE_TEST_ADS) TEST_APP_ID else PRODUCTION_APP_ID
+        get() = if (USE_TEST_ADS || BuildConfig.DEBUG) TEST_APP_ID else PRODUCTION_APP_ID
 
     /**
      * Active Banner Ad Unit ID
      */
     val bannerAdUnitId: String
-        get() = if (USE_TEST_ADS) TEST_BANNER_AD_UNIT_ID else PRODUCTION_BANNER_AD_UNIT_ID
+        get() = if (USE_TEST_ADS || BuildConfig.DEBUG) TEST_BANNER_AD_UNIT_ID else PRODUCTION_BANNER_AD_UNIT_ID
 
     /**
      * Active Interstitial Ad Unit ID
      */
     val interstitialAdUnitId: String
-        get() = if (USE_TEST_ADS) TEST_INTERSTITIAL_AD_UNIT_ID else PRODUCTION_INTERSTITIAL_AD_UNIT_ID
+        get() = if (USE_TEST_ADS || BuildConfig.DEBUG) TEST_INTERSTITIAL_AD_UNIT_ID else PRODUCTION_INTERSTITIAL_AD_UNIT_ID
 
     /**
      * Child-directed treatment flag (COPPA compliance).
