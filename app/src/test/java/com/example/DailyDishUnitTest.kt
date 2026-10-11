@@ -88,4 +88,29 @@ class DailyDishUnitTest {
         assertTrue(formattedBn.contains("রান্নার প্রণালী"))
         assertTrue(formattedBn.contains("Daily Dish"))
     }
+
+    @Test
+    fun `admob configuration matches specified publisher credentials`() {
+        assertEquals("ca-app-pub-5222053984568989~4936428567", com.example.ads.AdConfig.PRODUCTION_APP_ID)
+        assertEquals("ca-app-pub-5222053984568989/4736198143", com.example.ads.AdConfig.PRODUCTION_BANNER_AD_UNIT_ID)
+        assertEquals("ca-app-pub-5222053984568989/9796953135", com.example.ads.AdConfig.PRODUCTION_INTERSTITIAL_AD_UNIT_ID)
+        assertTrue(com.example.ads.AdConfig.ADS_ENABLED)
+    }
+
+    @Test
+    fun `surprise recipe returns valid candidate`() {
+        val all = RecipeRepository.getAllRecipes()
+        val current = all.first()
+        val surprise = RecipeRepository.getSurpriseRecipe(current.id)
+        assertNotNull(surprise)
+        assertTrue(all.contains(surprise))
+    }
+
+    @Test
+    fun `recent recipes returns unique past dishes`() {
+        val recent = RecipeRepository.getRecentRecipes(5)
+        assertTrue(recent.isNotEmpty())
+        assertEquals(recent.size, recent.distinctBy { it.id }.size)
+    }
 }
+

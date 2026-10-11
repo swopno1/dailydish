@@ -86,7 +86,7 @@ data class Recipe(
     val cookTimeMinutes: Int,
     val baseServings: Int = 4,
     val difficulty: Difficulty,
-    @DrawableRes val imageResId: Int,
+    @get:DrawableRes val imageResId: Int,
     val ingredients: List<Ingredient>,
     val steps: List<CookingStep>,
     val chefTipEn: String,
