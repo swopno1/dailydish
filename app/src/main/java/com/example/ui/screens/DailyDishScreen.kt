@@ -5,6 +5,8 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BorderStroke
@@ -462,8 +464,11 @@ fun RecipeDetailView(
                             .fillMaxWidth()
                             .aspectRatio(4f / 3f)
                     ) {
-                        Image(
-                            painter = painterResource(id = recipe.imageResId),
+                        AsyncImage(
+                            model = ImageRequest.Builder(LocalContext.current)
+                                .data(recipe.imageResId)
+                                .crossfade(true)
+                                .build(),
                             contentDescription = recipe.getTitle(language),
                             contentScale = ContentScale.Crop,
                             modifier = Modifier.fillMaxSize()
@@ -994,8 +999,11 @@ fun RecipeListView(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Image(
-                        painter = painterResource(id = itemRecipe.imageResId),
+                    AsyncImage(
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(itemRecipe.imageResId)
+                            .crossfade(true)
+                            .build(),
                         contentDescription = itemRecipe.getTitle(language),
                         contentScale = ContentScale.Crop,
                         modifier = Modifier

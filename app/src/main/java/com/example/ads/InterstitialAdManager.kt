@@ -10,8 +10,9 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
-class InterstitialAdManager(private val context: Context) {
+class InterstitialAdManager(context: Context) {
 
+    private val appContext: Context = context.applicationContext
     private var interstitialAd: InterstitialAd? = null
     private var isLoading = false
     private var lastAdShowTime: Long = 0L
@@ -31,7 +32,7 @@ class InterstitialAdManager(private val context: Context) {
             val adRequest = AdRequest.Builder().build()
 
             InterstitialAd.load(
-                context,
+                appContext,
                 AdConfig.interstitialAdUnitId,
                 adRequest,
                 object : InterstitialAdLoadCallback() {
